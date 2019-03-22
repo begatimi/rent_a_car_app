@@ -1,0 +1,227 @@
+package frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Font;
+
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+
+import security.SaltedMD5;
+
+import javax.swing.UIManager;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.Base64;
+import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
+
+public class frmInternalKrijoLlogari extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField textPerdoruesiRi;
+	private JTextField txtEmriRi;
+	private JTextField txtMbiemriRi;
+	private JTextField txtNrTelRi;
+	private JTextField txtEmailiRi;
+	private JTextField txtAdresaRe;
+	private JPasswordField txtFjalekalimiLlogarise;
+	private JPasswordField txtFjalekalimi;
+	private JPasswordField txtKonfirmoFjalekalimin;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmInternalKrijoLlogari frame = new frmInternalKrijoLlogari();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmInternalKrijoLlogari() {
+		setClosable(true);
+		setFrameIcon(new ImageIcon(frmInternalKrijoLlogari.class.getResource("/images/user-icon.png")));
+		setTitle("Shto Nj\u00EB Llogari T\u00EB Re");
+		setBounds(100, 100, 666, 480);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Te Dhenat Autentifikuese", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(20, 27, 262, 125);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblPerdoruesi = new JLabel("Perdoruesi:");
+		lblPerdoruesi.setBounds(10, 24, 122, 20);
+		panel.add(lblPerdoruesi);
+		lblPerdoruesi.setFont(new Font("Courier New", Font.PLAIN, 13));
+		
+		textPerdoruesiRi = new JTextField();
+		textPerdoruesiRi.setBounds(142, 24, 105, 20);
+		panel.add(textPerdoruesiRi);
+		textPerdoruesiRi.setColumns(10);
+		
+		JLabel lblFjalekalimi = new JLabel("Fjalekalimi:");
+		lblFjalekalimi.setBounds(10, 55, 122, 20);
+		panel.add(lblFjalekalimi);
+		lblFjalekalimi.setFont(new Font("Courier New", Font.PLAIN, 13));
+		
+		txtFjalekalimi = new JPasswordField();
+		txtFjalekalimi.setBounds(142, 55, 105, 20);
+		panel.add(txtFjalekalimi);
+		
+		JLabel lblKonfirmoFjalk = new JLabel("<html><p>Konfirmo</p><p>Fjalekalimin:</p></html> ");
+		lblKonfirmoFjalk.setVerticalAlignment(SwingConstants.TOP);
+		lblKonfirmoFjalk.setHorizontalAlignment(SwingConstants.LEFT);
+		lblKonfirmoFjalk.setFont(new Font("Courier New", Font.PLAIN, 12));
+		lblKonfirmoFjalk.setBounds(10, 78, 105, 28);
+		panel.add(lblKonfirmoFjalk);
+		
+		txtKonfirmoFjalekalimin = new JPasswordField();
+		txtKonfirmoFjalekalimin.setBounds(142, 86, 105, 20);
+		panel.add(txtKonfirmoFjalekalimin);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Te Dhenat Personale", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(322, 27, 292, 189);
+		getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblEmri = new JLabel("Emri*:");
+		lblEmri.setBounds(20, 23, 122, 20);
+		panel_1.add(lblEmri);
+		lblEmri.setFont(new Font("Courier New", Font.PLAIN, 12));
+		
+		txtEmriRi = new JTextField();
+		txtEmriRi.setBounds(164, 23, 105, 20);
+		panel_1.add(txtEmriRi);
+		txtEmriRi.setColumns(10);
+		
+		JLabel lblMbiemri = new JLabel("Mbiemri*:");
+		lblMbiemri.setBounds(20, 54, 122, 20);
+		panel_1.add(lblMbiemri);
+		lblMbiemri.setFont(new Font("Courier New", Font.PLAIN, 12));
+		
+		txtMbiemriRi = new JTextField();
+		txtMbiemriRi.setBounds(164, 54, 105, 20);
+		panel_1.add(txtMbiemriRi);
+		txtMbiemriRi.setColumns(10);
+		
+		JLabel lblNumriTelefonit = new JLabel("Numri Telefonit*:");
+		lblNumriTelefonit.setBounds(20, 85, 134, 20);
+		panel_1.add(lblNumriTelefonit);
+		lblNumriTelefonit.setFont(new Font("Courier New", Font.PLAIN, 12));
+		
+		txtNrTelRi = new JTextField();
+		txtNrTelRi.setBounds(164, 85, 105, 20);
+		panel_1.add(txtNrTelRi);
+		txtNrTelRi.setColumns(10);
+		
+		JLabel lblEmaili = new JLabel("Emaili:");
+		lblEmaili.setBounds(20, 116, 122, 20);
+		panel_1.add(lblEmaili);
+		lblEmaili.setFont(new Font("Courier New", Font.PLAIN, 12));
+		
+		txtEmailiRi = new JTextField();
+		txtEmailiRi.setBounds(164, 116, 105, 20);
+		panel_1.add(txtEmailiRi);
+		txtEmailiRi.setColumns(10);
+		
+		JLabel lblAdresa = new JLabel("Adresa:");
+		lblAdresa.setBounds(20, 147, 122, 20);
+		panel_1.add(lblAdresa);
+		lblAdresa.setFont(new Font("Courier New", Font.PLAIN, 12));
+		
+		txtAdresaRe = new JTextField();
+		txtAdresaRe.setBounds(164, 147, 105, 20);
+		panel_1.add(txtAdresaRe);
+		txtAdresaRe.setColumns(10);
+		
+		JLabel lblInfo = new JLabel("");
+		lblInfo.setForeground(Color.RED);
+		lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInfo.setBounds(322, 334, 292, 14);
+		getContentPane().add(lblInfo);
+
+		
+		JButton btnKrijoLlogarine = new JButton("KRIJO LLOGARIN\u00CB");
+		btnKrijoLlogarine.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				String perdoruesiRi = textPerdoruesiRi.getText(), fjalekalimiRi=txtFjalekalimi.getText(), konfirmoFjalekalimin = txtKonfirmoFjalekalimin.getText(),  emriRi = txtEmriRi.getText(), mbiemriRi = txtMbiemriRi.getText(), nrTelRi = txtNrTelRi.getText(), emailiRi = txtEmailiRi.getText(), adresaRe = txtAdresaRe.getText();
+				
+				String salti = SaltedMD5.generateSalt();
+				String sql = "INSERT INTO llogarite (perdoruesi, fjalekalimi, salti, eshteAktiv, emri, mbiemri, numriTelefonit, emaili, adresa) "
+						+ "VALUES ('" + perdoruesiRi + "', '"+ SaltedMD5.getSecurePassword(txtFjalekalimi.getText(), Base64.getDecoder().decode(salti)) +"', '"+ salti + "', 'po', '" + emriRi + "', '" + mbiemriRi + "', '" + nrTelRi +"', '" + emailiRi + "', '" + adresaRe + "')";
+				
+				if ( !fjalekalimiRi.equals(konfirmoFjalekalimin) ) {
+					lblInfo.setText("Fjalekalimet nuk jane shenuar njejte ne te dy fushat!");
+				} else if ( fjalekalimiRi.equals("") || konfirmoFjalekalimin.equals("") ) {
+					lblInfo.setText("Plotesoni fushat me fjalekalime!");
+				} else {
+					if ( !perdoruesiRi.isEmpty() && !emriRi.isEmpty() && !mbiemriRi.isEmpty() && !nrTelRi.isEmpty() ) {
+						if( SaltedMD5.getSecurePassword(txtFjalekalimiLlogarise.getText(), Base64.getDecoder().decode(Database.salt)).equals(Database.fjalekalimiDB) ) {
+							try {
+								Database.executeQueryDB(sql);
+							} catch (SQLException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							lblInfo.setText("Llogaria është shtuar me sukses!");
+							textPerdoruesiRi.setText("");
+							txtFjalekalimi.setText("");
+							txtKonfirmoFjalekalimin.setText("");
+							txtEmriRi.setText("");
+							txtMbiemriRi.setText("");
+							txtNrTelRi.setText("");
+							txtEmailiRi.setText("");
+							txtAdresaRe.setText("");
+							txtFjalekalimiLlogarise.setText("");
+							
+						} else {
+							lblInfo.setText("Fjalekalimi eshte shenuar gabim!");
+						}
+					} else {
+						lblInfo.setText("Ju lutem plotesoni te gjitha fushat me ylli (*)!");
+					}
+				}	
+			}
+		});
+		btnKrijoLlogarine.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnKrijoLlogarine.setBounds(376, 363, 184, 43);
+		getContentPane().add(btnKrijoLlogarine);
+		
+		JLabel photoLogin = new JLabel("");
+		photoLogin.setIcon(new ImageIcon(frmInternalKrijoLlogari.class.getResource("/images/Add-User-icon.png")));
+		photoLogin.setBounds(20, 169, 281, 274);
+		getContentPane().add(photoLogin);
+		
+		JLabel lblShkruaniFjalekaliminE = new JLabel("Shkruani fjalekalimin e llgaris\u00EB tuaj:");
+		lblShkruaniFjalekaliminE.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblShkruaniFjalekaliminE.setBounds(370, 265, 197, 27);
+		getContentPane().add(lblShkruaniFjalekaliminE);
+		
+		txtFjalekalimiLlogarise = new JPasswordField();
+		txtFjalekalimiLlogarise.setBounds(416, 303, 105, 20);
+		getContentPane().add(txtFjalekalimiLlogarise);
+	}
+}

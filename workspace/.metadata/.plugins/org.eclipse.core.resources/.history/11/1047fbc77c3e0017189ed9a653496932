@@ -1,0 +1,88 @@
+package frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
+
+public class frmAbout extends JInternalFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmAbout frame = new frmAbout();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmAbout() {
+		setClosable(true);
+		setFrameIcon(new ImageIcon(frmAbout.class.getResource("/images/info.png")));
+		setTitle("Rreth Nesh");
+		setBounds(100, 100, 680, 450);
+		getContentPane().setLayout(null);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(frmAbout.class.getResource("/images/University_of_Prishtina_logo.png")));
+		label.setBounds(230, 11, 200, 217);
+		getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("Universiteti i Prinshtin\u00EBs");
+		if (Gjuha.gjuha == "albanian") {
+			label_1.setText("University of Prinshtin");
+		} else {
+			label_1.setText("Faculty of Electrical and Computer Engineering");
+		}
+		label_1.setFont(new Font("Courier New", Font.BOLD, 17));
+		label_1.setBounds(200, 244, 260, 27);
+		getContentPane().add(label_1);
+		
+		JLabel label_2 = new JLabel("\"Hasan Prishtina\"");
+		
+		label_2.setFont(new Font("Courier New", Font.BOLD, 17));
+		label_2.setBounds(245, 270, 170, 27);
+		getContentPane().add(label_2);
+		
+		JLabel label_3 = new JLabel("Fakulteti i Inxhinieris\u00EB Elektrike dhe Kompjuterike");
+		if (Gjuha.gjuha == "albanian") {
+			label_3.setText("Fakulteti i Inxhinieris\u00EB Elektrike dhe Kompjuterike");
+		} else {
+			label_3.setText("Faculty of Electrical and Computer Engineering");
+		}
+		label_3.setFont(new Font("Courier New", Font.BOLD, 17));
+		label_3.setBounds(75, 320, 510, 27);
+		getContentPane().add(label_3);
+		
+		JLabel label_4 = new JLabel("Punuar nga: Arber Mazrekaj, Begatim Lekaj, Getoar Gaxherri, Sadri Shehu, Said Sylejmani.");
+		if (Gjuha.gjuha == "albanian") {
+			label_4.setText("Punuar nga: Arber Mazrekaj, Begatim Lekaj, Getoar Gaxherri, Sadri Shehu, Said Sylejmani.");
+		} else {
+			label_4.setText("Worked by : Arber Mazrekaj, Begatim Lekaj, Getoar Gaxherri, Sadri Shehu, Said Sylejmani." );
+		}
+		label_4.setHorizontalAlignment(SwingConstants.CENTER);
+		label_4.setFont(new Font("Tahoma", Font.PLAIN, 9));
+		label_4.setBounds(10, 385, 644, 14);
+		getContentPane().add(label_4);
+
+	}
+
+}

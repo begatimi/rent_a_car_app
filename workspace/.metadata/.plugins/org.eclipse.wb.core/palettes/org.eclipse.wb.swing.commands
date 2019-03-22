@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<moveEntry
+		id="org.eclipse.wb.swing.components javax.swing.JSpinner"
+		category="org.eclipse.wb.swing.BoxLayout"/>
+	<moveEntry
+		id="org.eclipse.wb.swing.components.awt java.awt.Label"
+		category="org.eclipse.wb.swing.components.awt"/>
+	<moveCategory
+		id="org.eclipse.wb.swing.components.menu"
+		nextCategory="org.eclipse.wb.swing.components.menu"/>
+</commands>

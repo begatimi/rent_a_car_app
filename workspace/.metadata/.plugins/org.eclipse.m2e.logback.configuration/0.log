@@ -1,0 +1,1236 @@
+2016-10-12 18:02:08,310 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2016-10-12 18:05:27,722 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-12 18:53:37,564 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-12 19:24:56,200 [Worker-22] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[na:1.8.0_101]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_101]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_101]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2016-10-12 19:28:00,215 [Worker-20] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:28:03,344 [Worker-21] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:48:10,815 [Worker-31] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:48:13,638 [Worker-30] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:48:31,961 [Worker-31] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:48:34,321 [Worker-32] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:49:31,498 [Worker-30] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:49:33,191 [Worker-33] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:55:18,949 [Worker-21] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:55:20,072 [Worker-33] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:55:53,923 [Worker-32] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-12 19:55:55,567 [Worker-33] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-18 19:31:20,142 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-10-19 22:29:51,834 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-10-19 22:30:27,732 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @91471ms
+2016-10-19 22:30:28,134 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2016-10-19 22:30:28,277 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@74a7e7a2{/help,null,AVAILABLE}
+2016-10-19 22:30:28,378 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@c2cfd0d{HTTP/1.1,[http/1.1]}{127.0.0.1:63873}
+2016-10-19 22:30:28,379 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @92119ms
+2016-10-19 22:32:03,106 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@c2cfd0d{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2016-10-19 22:32:03,153 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@74a7e7a2{/help,null,UNAVAILABLE}
+2016-10-20 18:04:23,549 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-20 18:09:10,294 [Worker-6] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[na:1.8.0_101]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_101]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_101]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2016-10-20 18:09:14,163 [Worker-5] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 18:37:54,098 [Worker-30] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 18:38:08,975 [Worker-22] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 18:40:34,142 [Worker-30] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 19:00:12,464 [Worker-38] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 19:01:31,469 [Worker-32] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-20 19:04:38,474 [Worker-32] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:165) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.3.v20160913-0645.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2016-10-23 14:51:05,222 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-10-26 12:34:38,410 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-10-26 19:07:04,380 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-27 00:16:32,713 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-27 01:57:00,453 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-31 12:53:00,314 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-10-31 12:58:04,887 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-11-02 18:51:31,800 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-09 18:55:58,712 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-09 18:56:04,065 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2016-11-16 19:07:15,070 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-23 19:07:21,985 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-30 12:47:13,534 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-11-30 12:47:36,992 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2016-12-01 11:41:11,767 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-12-07 18:56:36,305 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-12-14 18:58:04,136 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-12-22 16:37:01,526 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-12-22 16:37:06,437 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-01-04 19:04:38,031 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-01-09 14:07:15,129 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-01-11 17:45:13,079 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-01-11 17:45:18,270 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-01-11 20:06:26,818 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-01-11 20:06:27,158 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-01-17 23:26:39,544 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-01-18 17:09:08,671 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-01-31 21:18:47,953 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-01 21:54:38,356 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-02 00:02:29,482 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-02-02 16:10:46,712 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-02-03 16:56:57,039 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-05 18:41:01,871 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-06 17:02:06,634 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-02-07 18:18:48,142 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-08 15:41:33,675 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-02-09 12:06:48,485 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-14 04:16:06,277 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-02-27 13:10:04,189 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2017-02-27 16:18:10,409 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-02-27 16:43:32,340 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-06 17:48:58,407 [Worker-121] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2017-03-06 18:08:47,533 [Worker-149] WARN  o.e.r.models.ModelRepository - Failed to download org.eclipse.recommenders:index::zip:0.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact org.eclipse.recommenders:index:zip:0.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact org.eclipse.recommenders:index:zip:0.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2017-03-06 18:09:07,440 [Worker-147] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2017-03-06 18:09:44,145 [Worker-148] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:10:43,960 [Worker-149] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:11:19,525 [Worker-148] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:12:29,607 [Worker-152] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:12:43,701 [Worker-140] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:14:34,519 [Worker-148] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:20:05,818 [Worker-155] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:23:02,202 [Worker-153] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:23:08,796 [Worker-156] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:37:27,050 [Worker-172] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:37:31,300 [Worker-173] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:38:53,456 [Worker-172] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:39:44,459 [Worker-170] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:40:17,155 [Worker-169] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:41:02,407 [Worker-164] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:42:51,629 [Worker-176] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:43:22,271 [Worker-176] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:43:44,647 [Worker-175] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:47:37,964 [Worker-178] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:48:20,138 [Worker-170] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:48:40,420 [Worker-179] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:55:36,104 [Worker-184] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:55:55,121 [Worker-183] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:58:03,947 [Worker-178] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:58:17,635 [Worker-184] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:58:20,292 [Worker-184] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-06 18:58:49,215 [Worker-184] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:call:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20161130-1433.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:call:1.0.0-SNAPSHOT from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:call:1.0.0-SNAPSHOT from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-03-12 23:56:43,702 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is not available. Remote download required.
+2017-03-13 11:51:20,229 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-13 17:33:39,138 [Worker-13] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-14 15:12:35,248 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-03-20 16:48:52,462 [Worker-31] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-03-27 16:14:07,041 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-03-27 16:35:24,162 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-27 18:32:38,302 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-27 22:31:40,379 [Worker-17] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-28 08:43:11,910 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-28 15:49:53,841 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-03 17:43:33,898 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-03 17:43:34,228 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-04-03 18:47:40,962 [Worker-36] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ovrm:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:ovrm:1.0.0-20160630.190028-5 from/to models (http://download.eclipse.org/recommenders/models/neon/): Read timed out
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:ovrm:1.0.0-20160630.190028-5 from/to models (http://download.eclipse.org/recommenders/models/neon/): Read timed out
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method) ~[na:1.8.0_121]
+	at java.net.SocketInputStream.socketRead(Unknown Source) ~[na:1.8.0_121]
+	at java.net.SocketInputStream.read(Unknown Source) ~[na:1.8.0_121]
+	at java.net.SocketInputStream.read(Unknown Source) ~[na:1.8.0_121]
+	at org.apache.http.impl.io.AbstractSessionInputBuffer.read(AbstractSessionInputBuffer.java:198) ~[na:na]
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:178) ~[na:na]
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:137) ~[na:na]
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:150) ~[na:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.copy(AbstractTransporter.java:200) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.utilGet(AbstractTransporter.java:96) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.access$100(HttpTransporter.java:72) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter$EntityGetter.handle(HttpTransporter.java:516) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:294) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2017-04-03 18:56:10,617 [Worker-62] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ctor:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): download.eclipse.org
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: java.net.UnknownHostException: download.eclipse.org
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:1.8.0_121]
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[na:1.8.0_121]
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2017-04-07 15:31:01,784 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-10 01:09:25,721 [Worker-19] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-10 13:48:07,223 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-10 22:08:28,678 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-11 03:29:38,492 [Worker-12] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-11 11:30:00,951 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-12 18:00:31,586 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-12 18:00:32,178 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-04-12 23:34:37,963 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-12 23:38:10,588 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-13 00:50:03,968 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-13 17:30:28,425 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-20 22:43:08,012 [Worker-13] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-21 01:48:56,022 [Worker-111] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ctor:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): Connect to download.eclipse.org:80 timed out
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): Connect to download.eclipse.org:80 timed out
+	at org.eclipse.aether.connector.basic.ArtifactTransportListener.transferFailed(ArtifactTransportListener.java:43) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:355) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.util.concurrency.RunnableErrorForwarder$1.run(RunnableErrorForwarder.java:67) ~[na:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$DirectExecutor.execute(BasicRepositoryConnector.java:581) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector.get(BasicRepositoryConnector.java:249) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:520) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+Caused by: org.apache.http.conn.ConnectTimeoutException: Connect to download.eclipse.org:80 timed out
+	at org.apache.http.conn.scheme.PlainSocketFactory.connectSocket(PlainSocketFactory.java:119) ~[na:na]
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:177) ~[na:na]
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:304) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611) ~[na:na]
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446) ~[na:na]
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[na:na]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57) ~[na:na]
+	at org.apache.http.impl.client.DecompressingHttpClient.execute(DecompressingHttpClient.java:158) ~[na:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.execute(HttpTransporter.java:287) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.transport.http.HttpTransporter.implGet(HttpTransporter.java:243) ~[org.eclipse.aether.transport.http_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.spi.connector.transport.AbstractTransporter.get(AbstractTransporter.java:59) ~[org.eclipse.aether.spi_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$GetTaskRunner.runTask(BasicRepositoryConnector.java:447) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	at org.eclipse.aether.connector.basic.BasicRepositoryConnector$TaskRunner.run(BasicRepositoryConnector.java:350) ~[org.eclipse.aether.connector.basic_1.0.1.v20141111.jar:na]
+	... 13 common frames omitted
+2017-04-21 02:02:09,230 [Worker-121] WARN  o.e.r.models.ModelRepository - Failed to download jre:jre:ctor:zip:1.0.0
+org.eclipse.aether.resolution.ArtifactResolutionException: Failure to transfer jre:jre:zip:ctor:1.0.0-20160630.072510-1 from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): Connect to download.eclipse.org:80 timed out
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:444) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifacts(DefaultArtifactResolver.java:246) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolveArtifact(DefaultArtifactResolver.java:223) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultRepositorySystem.resolveArtifact(DefaultRepositorySystem.java:294) ~[na:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolveInternal(ModelRepository.java:193) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.models.ModelRepository.resolve(ModelRepository.java:172) [org.eclipse.recommenders.models_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.EclipseModelRepository.resolve(EclipseModelRepository.java:169) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.recommenders.internal.models.rcp.DownloadModelArchiveJob.run(DownloadModelArchiveJob.java:76) [org.eclipse.recommenders.models.rcp_2.4.6.v20170307-1041.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55) [org.eclipse.core.jobs_3.8.0.v20160509-0411.jar:na]
+Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to transfer jre:jre:zip:ctor:1.0.0-20160630.072510-1 from http://download.eclipse.org/recommenders/models/neon/ was cached in the local repository, resolution will not be reattempted until the update interval of models has elapsed or updates are forced. Original error: Could not transfer artifact jre:jre:zip:ctor:1.0.0-20160630.072510-1 from/to models (http://download.eclipse.org/recommenders/models/neon/): Connect to download.eclipse.org:80 timed out
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.newException(DefaultUpdateCheckManager.java:238) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultUpdateCheckManager.checkArtifact(DefaultUpdateCheckManager.java:206) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.gatherDownloads(DefaultArtifactResolver.java:585) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.performDownloads(DefaultArtifactResolver.java:503) ~[na:na]
+	at org.eclipse.aether.internal.impl.DefaultArtifactResolver.resolve(DefaultArtifactResolver.java:421) ~[na:na]
+	... 8 common frames omitted
+2017-04-21 09:32:00,704 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-24 14:00:25,141 [Worker-16] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-24 14:17:54,137 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-24 21:48:18,512 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-24 22:08:54,270 [Worker-12] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-25 10:28:20,796 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-25 16:16:28,660 [Worker-15] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-25 20:50:30,045 [Worker-23] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-26 09:50:47,724 [Worker-12] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-26 11:57:47,463 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-26 19:39:56,875 [Worker-45] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-26 19:40:50,019 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-27 10:15:03,020 [Worker-29] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-27 15:08:37,062 [Worker-17] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-27 20:24:13,544 [Worker-20] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-28 09:47:37,303 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-28 16:15:33,413 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-04-29 11:08:31,603 [Worker-10] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-30 11:29:05,250 [Worker-20] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-04-30 15:49:28,015 [Worker-10] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-05-02 10:06:13,218 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-05-02 10:06:13,391 [Worker-14] INFO  c.g.t.t.d.PublishedGradleVersions - Updating Gradle version information cache failed. Using outdated cache.
+2017-05-04 15:18:56,132 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-05-06 15:07:43,321 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-05-07 20:01:08,052 [Worker-3] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-05-19 22:10:02,020 [Worker-11] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-05-21 15:12:56,128 [Worker-4] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-05-21 20:32:54,355 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-05-21 20:40:27,203 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-05-22 09:59:59,135 [Worker-9] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-05-22 14:53:32,173 [Worker-12] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

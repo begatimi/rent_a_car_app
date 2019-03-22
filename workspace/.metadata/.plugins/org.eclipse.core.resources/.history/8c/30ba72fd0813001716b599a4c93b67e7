@@ -1,0 +1,123 @@
+package java_5;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+
+public class frmFileTransfer extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmFileTransfer frame = new frmFileTransfer();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmFileTransfer() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 601, 447);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblKalkulatoriPerTransferimin = new JLabel("KALKULATORI PER TRANSFERIMIN E FAJLLAVE");
+		lblKalkulatoriPerTransferimin.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblKalkulatoriPerTransferimin.setBounds(105, 32, 378, 26);
+		contentPane.add(lblKalkulatoriPerTransferimin);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Rregullimet", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(34, 83, 506, 74);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblSasiaETe = new JLabel("Sasia e te dhenave:");
+		lblSasiaETe.setBounds(21, 32, 171, 14);
+		panel.add(lblSasiaETe);
+		
+		JComboBox cmbData = new JComboBox();
+		cmbData.setModel(new DefaultComboBoxModel(new String[] {"KB", "MB", "GB", "TB"}));
+		cmbData.setBounds(154, 29, 78, 20);
+		panel.add(cmbData);
+		
+		JLabel lblBandwidth = new JLabel("Bandwidth:");
+		lblBandwidth.setBounds(305, 32, 96, 14);
+		panel.add(lblBandwidth);
+		
+		JComboBox cmbRate = new JComboBox();
+		cmbRate.setModel(new DefaultComboBoxModel(new String[] {"Kbps", "Mbps", "Gbps"}));
+		cmbRate.setBounds(383, 29, 78, 20);
+		panel.add(cmbRate);
+		
+		JLabel lblSasiaETe_1 = new JLabel("Sasia e te dhenave:");
+		lblSasiaETe_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblSasiaETe_1.setBounds(40, 194, 128, 26);
+		contentPane.add(lblSasiaETe_1);
+		
+		JSlider slData = new JSlider();
+		
+		slData.setMaximum(1024);
+		slData.setMinimum(1);
+		slData.setBounds(32, 231, 200, 26);
+		contentPane.add(slData);
+		
+		JLabel lblData = new JLabel("Data");
+		lblData.setBounds(266, 231, 46, 14);
+		contentPane.add(lblData);
+		
+		JLabel lblShkallaETransferit = new JLabel("Shkalla e transferit:");
+		lblShkallaETransferit.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblShkallaETransferit.setBounds(40, 293, 128, 26);
+		contentPane.add(lblShkallaETransferit);
+		
+		JSlider slRate = new JSlider();
+		slRate.setMaximum(1000);
+		slRate.setMinimum(1);
+		slRate.setBounds(32, 330, 200, 26);
+		contentPane.add(slRate);
+		
+		JLabel lblRate = new JLabel("Rate");
+		lblRate.setBounds(266, 330, 46, 14);
+		contentPane.add(lblRate);
+		
+		JLabel lblKoha = new JLabel("Koha e transferimit");
+		lblKoha.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblKoha.setBounds(374, 242, 164, 26);
+		contentPane.add(lblKoha);
+		
+		slData.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				
+			}
+		});
+	}
+}

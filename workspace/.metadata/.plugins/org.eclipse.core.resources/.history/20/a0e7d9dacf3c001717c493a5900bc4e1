@@ -1,0 +1,117 @@
+package Frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.Base64;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+
+import Security.SaltedMD5;
+
+public class frmInternalNdryshoFjalekalimin extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPasswordField pwdFjalkRi;
+	private JPasswordField pwdKonFjalk;
+	private JPasswordField pwdFjalkAktual;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmInternalNdryshoFjalekalimin frame = new frmInternalNdryshoFjalekalimin();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmInternalNdryshoFjalekalimin() {
+		setFrameIcon(new ImageIcon(frmInternalNdryshoFjalekalimin.class.getResource("/images/login.png")));
+		setClosable(true);
+		setBounds(100, 100, 290, 393);
+		getContentPane().setLayout(null);
+		
+		JLabel lblFjalekalimiIRi = new JLabel("Fjal\u00EBkalimi i ri:");
+		lblFjalekalimiIRi.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblFjalekalimiIRi.setBounds(49, 38, 161, 17);
+		getContentPane().add(lblFjalekalimiIRi);
+		
+		JLabel lblKonfirmoFjalekalimiI = new JLabel("Konfirmo fjal\u00EBkalimin e ri:");
+		lblKonfirmoFjalekalimiI.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblKonfirmoFjalekalimiI.setBounds(49, 99, 161, 17);
+		getContentPane().add(lblKonfirmoFjalekalimiI);
+		
+		JLabel lblFjalekalimiAktual = new JLabel("Fjalekalimi Aktual:");
+		lblFjalekalimiAktual.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblFjalekalimiAktual.setBounds(49, 192, 161, 17);
+		getContentPane().add(lblFjalekalimiAktual);
+		
+		JButton btnNdryshoFjalkalimin = new JButton("Ndrysho Fjal\u00EBkalimin");
+		btnNdryshoFjalkalimin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+								
+				if( pwdFjalkRi.getText().equals("") || pwdKonFjalk.getText().equals("") ) {
+					JOptionPane.showMessageDialog(null, "Ju lutëm plotësoni të gjitha fushat e zbrazëta!");
+				} 
+				else if ( !pwdFjalkRi.getText().equals(pwdKonFjalk.getText()) ) {
+					JOptionPane.showMessageDialog(null, "Fjalëkalimin e ri nuk është njejtë në të dy fushat!");
+				}
+				else if ( pwdFjalkAktual.getText().equals("") ) {
+					JOptionPane.showMessageDialog(null, "Ju lutem shenoni fjalëkalimin aktual për të verifikuar ndërrimin e fjalëkalimit!");
+				}
+				else if( SaltedMD5.getSecurePassword(pwdFjalkAktual.getText(), Base64.getDecoder().decode(Database.salt)).equals(Database.fjalekalimiDB) ) {
+					String salti = SaltedMD5.generateSalt();
+					String sql = "UPDATE llogarite SET fjalekalimi='" + SaltedMD5.getSecurePassword(pwdFjalkRi.getText(), Base64.getDecoder().decode(salti))
+					+ "', salti='" + salti + "' WHERE ID='"+ Database.idDB +"'";
+					try {
+						Database.executeQueryDB(sql);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(null, "Fjalekalimi u nderrua me sukses! ");
+				} else {
+					JOptionPane.showMessageDialog(null, "Fjalëkalimin për verifikim është shënuar gabim!");
+				}
+				
+				
+			}
+		});
+		btnNdryshoFjalkalimin.setBounds(49, 253, 151, 48);
+		getContentPane().add(btnNdryshoFjalkalimin);
+		
+		pwdFjalkRi = new JPasswordField();
+		pwdFjalkRi.setBounds(49, 66, 161, 22);
+		getContentPane().add(pwdFjalkRi);
+		
+		pwdKonFjalk = new JPasswordField();
+		pwdKonFjalk.setBounds(49, 127, 161, 22);
+		getContentPane().add(pwdKonFjalk);
+		
+		pwdFjalkAktual = new JPasswordField();
+		pwdFjalkAktual.setBounds(49, 220, 151, 22);
+		getContentPane().add(pwdFjalkAktual);
+
+	}
+}

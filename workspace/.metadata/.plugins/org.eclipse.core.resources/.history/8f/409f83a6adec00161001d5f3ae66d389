@@ -1,0 +1,37 @@
+package test;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Fruit fruit = new GoldenDelicious();
+		Orange orange = new Orange();
+		
+		((Apple) fruit).makeAppleCider();
+		orange.makeOrangeJuice();
+	}
+}
+
+class Fruit {
+	
+}
+
+class Apple extends Fruit {
+	public void makeAppleCider() {
+		System.out.println("making apple cider...");
+	}
+}
+
+class Orange extends Fruit {
+	public void makeOrangeJuice() {
+		System.out.println("making orange juice...");
+	}
+}
+
+class GoldenDelicious extends Apple {
+	
+}
+
+class McIntosh extends Apple {
+	
+}
+

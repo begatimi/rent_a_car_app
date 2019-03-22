@@ -1,0 +1,313 @@
+package frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
+import net.proteanit.sql.DbUtils;
+
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.JSpinner;
+import javax.swing.table.DefaultTableModel;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+
+import javax.swing.SpinnerNumberModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+
+public class frmInternalKategoriteKostot extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField textField;
+	private JTextField txtKategoria;
+	private JTable tblKategorite;
+	
+	int kid;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmInternalKategoriteKostot frame = new frmInternalKategoriteKostot();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmInternalKategoriteKostot() {
+		setTitle("Kategorite dhe Kostot");
+		setClosable(true);
+		setBounds(100, 100, 653, 404);
+		getContentPane().setLayout(null);
+		
+		JLabel lblFormaPrMenaxhimin = new JLabel();
+		lblFormaPrMenaxhimin.setHorizontalAlignment(SwingConstants.CENTER);
+		if (Gjuha.gjuha == "albanian") {
+			lblFormaPrMenaxhimin.setText("FORMA P\u00CBR MENAXHIMIN KATEGORIVE DHE KOSTOVE");
+		} else {
+			lblFormaPrMenaxhimin.setText("Forms of management categories and costs");
+		}
+		lblFormaPrMenaxhimin.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblFormaPrMenaxhimin.setBounds(10, 11, 615, 26);
+		getContentPane().add(lblFormaPrMenaxhimin);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 76, 615, 166);
+		getContentPane().add(scrollPane);
+		
+		JSpinner spKostojaDitore = new JSpinner();
+		spKostojaDitore.setModel(new SpinnerNumberModel(10, 3, 50, 1));
+		spKostojaDitore.setBounds(111, 281, 74, 20);
+		getContentPane().add(spKostojaDitore);
+		
+		JSpinner spKostojaJavore = new JSpinner();
+		spKostojaJavore.setModel(new SpinnerNumberModel(10, 3, 50, 1));
+		spKostojaJavore.setBounds(111, 305, 74, 20);
+		getContentPane().add(spKostojaJavore);
+		
+		JSpinner spKostojaMujore = new JSpinner();
+		spKostojaMujore.setModel(new SpinnerNumberModel(10, 3, 50, 1));
+		spKostojaMujore.setBounds(111, 330, 74, 20);
+		getContentPane().add(spKostojaMujore);
+		
+		tblKategorite = new JTable();
+		tblKategorite.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				DefaultTableModel model = (DefaultTableModel)tblKategorite.getModel();
+				kid = (int)model.getValueAt(tblKategorite.getSelectedRow(), 0);
+				
+				try {
+					String sql = "select * from kategorite where kid='"+kid+"'";
+					Database.pst = Database.conn.prepareStatement(sql);
+					Database.res = Database.pst.executeQuery();
+					
+					while(Database.res.next()) {
+						txtKategoria.setText(Database.res.getString("kategorite"));
+						spKostojaDitore.setValue(Database.res.getInt("kostojaDitore"));
+						spKostojaJavore.setValue(Database.res.getInt("kostojaJavore"));
+						spKostojaMujore.setValue(Database.res.getInt("kostojaMujore"));
+						
+					}
+					
+					Database.pst.close();
+				} catch (Exception e2) {
+					
+				}
+			}
+		});
+		scrollPane.setViewportView(tblKategorite);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(345, 48, 161, 22);
+		getContentPane().add(textField);
+		
+		JButton button = new JButton();
+		if (Gjuha.gjuha == "albanian") {
+			button.setText("K\u00EBrko");
+		} else {
+			button.setText("Search");
+		}
+		button.setBounds(516, 48, 89, 23);
+		getContentPane().add(button);
+		
+		JLabel lblKategoria = new JLabel();
+		 if (Gjuha.gjuha == "albanian") {
+			lblKategoria.setText("Category");
+		} else {
+			lblKategoria.setText("lblKategoria");
+		}
+		lblKategoria.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKategoria.setBounds(10, 256, 74, 16);
+		getContentPane().add(lblKategoria);
+		
+		txtKategoria = new JTextField();
+		txtKategoria.setColumns(10);
+		txtKategoria.setBounds(94, 254, 130, 20);
+		getContentPane().add(txtKategoria);
+		
+		JLabel lblKostojaJavore = new JLabel();
+		if (Gjuha.gjuha == "albanian") {
+			lblKostojaJavore.setText("Kostoja Javore:");
+		} else {
+			lblKostojaJavore.setText("Weekly Cost:");
+		}
+		lblKostojaJavore.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKostojaJavore.setBounds(10, 307, 91, 16);
+		getContentPane().add(lblKostojaJavore);
+		
+		JLabel lblKostojaDitore = new JLabel();
+		if (Gjuha.gjuha == "albanian") {
+			lblKostojaDitore.setText("Kostoja Ditore:");
+		} else {
+			lblKostojaDitore.setText("Daily Cost");
+		}
+		lblKostojaDitore.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKostojaDitore.setBounds(10, 282, 91, 16);
+		getContentPane().add(lblKostojaDitore);
+		
+		JLabel lblKostojaMujore = new JLabel();
+		if (Gjuha.gjuha == "albanian") {
+			lblKostojaMujore.setText("Kostoja Mujore:");
+		} else {
+			lblKostojaMujore.setText("Monthly Cost");
+		}
+		lblKostojaMujore.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblKostojaMujore.setBounds(10, 332, 91, 16);
+		getContentPane().add(lblKostojaMujore);
+		
+		JLabel lblInfo = new JLabel("");
+		lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInfo.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lblInfo.setForeground(Color.RED);
+		lblInfo.setBounds(239, 340, 386, 14);
+		getContentPane().add(lblInfo);
+		
+		JButton btnNdrysho = new JButton();
+		if (Gjuha.gjuha == "albanian") {
+			btnNdrysho.setText("Ndrysho");
+		} else {
+			btnNdrysho.setText("Change");
+		}
+		btnNdrysho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String sql = "update kategorite set kategorite='"+ txtKategoria.getText() +"', kostojaDitore ='" + spKostojaDitore.getValue() + "',  "
+						+ "kostojaJavore = '" + spKostojaJavore.getValue() + "', kostojaMujore = '" + spKostojaMujore.getValue() + "'  where kid ='" + kid + "';";
+				
+				if ( kid != 0) {
+					try {
+						Database.executeQueryDB(sql);
+						lblInfo.setText("Ruajtja është bërë me sukses!");
+						updateTable();
+					} catch (SQLException e1) {
+						JOptionPane.showMessageDialog(null, e1);
+					}
+				} else {
+					lblInfo.setText("Nuk keni zgjedhur asnje rresht!");
+				}
+				
+			}
+		});
+		btnNdrysho.setBounds(239, 293, 89, 42);
+		getContentPane().add(btnNdrysho);
+		
+		JButton btnPastro = new JButton();
+		if (Gjuha.gjuha == "albanian") {
+			btnPastro.setText("Pastro");
+		} else {
+			btnPastro.setText("Clear");
+		}
+		btnPastro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtKategoria.setText("");
+				spKostojaDitore.setValue(10);
+				spKostojaJavore.setValue(10);
+				spKostojaMujore.setValue(10);
+			}
+		});
+		btnPastro.setBounds(338, 292, 89, 42);
+		getContentPane().add(btnPastro);
+		
+		JButton btnShtoTre = new JButton();
+		if (Gjuha.gjuha == "albanian") {
+			btnShtoTre.setText("Shto T'Re");
+		} else {
+			btnShtoTre.setText("Add New");
+		}
+		btnShtoTre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String sql = "INSERT INTO kategorite (kategorite, kostojaDitore, kostojaJavore, kostojaMujore) VALUES ('" + txtKategoria.getText() + "', '"
+						+ spKostojaDitore.getValue()  + "', '" + spKostojaJavore.getValue() + "', '" + spKostojaMujore.getValue() + "');";
+				
+				try {
+					Database.executeQueryDB(sql);
+					lblInfo.setText("Kategoria eshte shtuar me sukses!");
+					updateTable();
+					
+				} catch (SQLException e1) {
+					lblInfo.setText("Kategori nuk mund te shtohet, sigurohuni se ajo nuk eshte shtuar me heret!");
+				}
+			}
+		});
+		btnShtoTre.setBounds(437, 292, 89, 42);
+		getContentPane().add(btnShtoTre);
+		
+		JButton btnFshij = new JButton();
+		if (Gjuha.gjuha == "albanian") {
+			btnFshij.setText("Fshij");
+		} else {
+			btnFshij.setText("Delete");
+		}
+		btnFshij.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if ( kid == 0) {
+					lblInfo.setText("Nuk keni zgjedhur asnje rresht!");
+				} else {
+					String[] options = new String[] {"Po", "Jo"};
+					int pergjigja = JOptionPane.showOptionDialog(null, "A jeni i sigurt?", "Konfirmo",
+					        JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+					        null, options, options[0]);
+					
+					String sql="delete from kategorite where kid='" + kid + "'";
+				
+				
+					if ( pergjigja == 0 ) {
+						try {
+							Database.executeQueryDB(sql);
+							btnPastro.doClick();
+							lblInfo.setText("Kategoria u fshi me sukses!");
+							updateTable();
+						} catch (SQLException e1) {
+							JOptionPane.showMessageDialog(null, e1);
+						}
+					} else {
+						lblInfo.setText("");
+					}
+				}
+			}
+		});
+		btnFshij.setBounds(536, 291, 89, 42);
+		getContentPane().add(btnFshij);
+		
+		updateTable();
+	}
+	
+	public void updateTable() {
+		try {
+			String sql = "select * from kategorite";
+			
+			Database.pst = Database.conn.prepareStatement(sql);
+			Database.res = Database.pst.executeQuery();
+			
+			tblKategorite.setModel(DbUtils.resultSetToTableModel(Database.res));
+			Database.pst.close();
+		} catch (Exception e) {
+			
+		}
+	}
+}

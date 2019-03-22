@@ -1,0 +1,9 @@
+package test;
+
+
+public class Test {
+	public static void main(String[] args) {
+		Object[] a = new Integer[50];
+		System.out.println(a);
+	}
+}

@@ -1,0 +1,13 @@
+package test;
+
+import java.util.ArrayList;
+
+public class Test {
+	public static void main(String[] args) {
+		ArrayList<Number> list = new ArrayList<Number>();
+		
+		list.add(new Integer(2));
+		list.add(new Double(1.5));
+		System.out.println((double)1);
+	}
+}

@@ -1,0 +1,374 @@
+package frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
+
+import javax.swing.UIManager;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.time.Year;
+import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+
+public class frmInternalShtoVetura extends JInternalFrame {
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTextField txtVitiProdhimit;
+	private JTextField txtMarka;
+	private JTextField txtModeli;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmInternalShtoVetura frame = new frmInternalShtoVetura();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmInternalShtoVetura() {
+		if (Gjuha.gjuha == "albania") {
+			setTitle("Forma P\u00EBr Rexhistrimin e Veturave");
+		} else {
+			setTitle("Car Register Form");
+		}
+		setClosable(true);
+		setBounds(100, 100, 577, 504);
+		getContentPane().setLayout(null);
+		
+		JLabel lblFormaPrRexhistrimin = new JLabel("FORMA P\u00CBR REXHISTRIMIN E VETURAVE");
+		if (Gjuha.gjuha == "albanian") {
+			lblFormaPrRexhistrimin.setText("FORMA P\u00CBR REXHISTRIMIN E VETURAVE");
+		} else {
+			lblFormaPrRexhistrimin.setText("CAR REGISTER FORM");
+		}
+		lblFormaPrRexhistrimin.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblFormaPrRexhistrimin.setBounds(122, 26, 375, 14);
+		getContentPane().add(lblFormaPrRexhistrimin);
+		
+		JPanel panel = new JPanel();
+		panel.setForeground(Color.BLACK);
+		if (Gjuha.gjuha == "albanian") {
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Te Dhenat Identifikuese", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		} else {
+			panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Identification Details", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		}
+		panel.setBounds(37, 60, 477, 151);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblMarka = new JLabel("Marka:");
+		if (Gjuha.gjuha == "albanian") {
+			lblMarka.setText("Marka:");
+		} else {
+			lblMarka.setText("Mark:");
+		}
+		lblMarka.setBounds(172, 22, 46, 14);
+		panel.add(lblMarka);
+		
+		JLabel lblModeli = new JLabel("Modeli:");
+		if (Gjuha.gjuha == "albanian") {
+			lblModeli.setText("Modeli:");
+		} else {
+			lblModeli.setText("Model:");
+		}
+		lblModeli.setBounds(321, 22, 46, 14);
+		panel.add(lblModeli);
+		
+		JLabel lblVitiProdhimit = new JLabel("Viti Prodhimit:");
+		if (Gjuha.gjuha == "albanian") {
+			lblVitiProdhimit.setText("Viti Prodhimit:");
+		} else {
+			lblVitiProdhimit.setText("Year Produced:");
+		}
+		lblVitiProdhimit.setBounds(172, 76, 115, 14);
+		panel.add(lblVitiProdhimit);
+		
+		txtVitiProdhimit = new JTextField();
+		txtVitiProdhimit.setBounds(172, 92, 73, 20);
+		panel.add(txtVitiProdhimit);
+		txtVitiProdhimit.setColumns(10);
+		
+		txtMarka = new JTextField();
+		txtMarka.setBounds(172, 36, 115, 20);
+		panel.add(txtMarka);
+		txtMarka.setColumns(10);
+		
+		txtModeli = new JTextField();
+		txtModeli.setBounds(321, 36, 115, 20);
+		panel.add(txtModeli);
+		txtModeli.setColumns(10);
+		
+		JLabel lblKategoria = new JLabel("Kategoria:");
+		if (Gjuha.gjuha == "albanian") {
+			lblKategoria.setText("Kategoria:");
+		} else {
+			lblKategoria.setText("Category:");
+		}
+		lblKategoria.setBounds(21, 22, 86, 14);
+		panel.add(lblKategoria);
+		
+		JComboBox<String> cmbKategoria = new JComboBox<String>();
+		cmbKategoria.setBounds(21, 36, 115, 20);
+		panel.add(cmbKategoria);
+		
+		try {
+			String kategoria = "select kategorite from kategorite;";
+			Database.pst = Database.conn.prepareStatement(kategoria);
+			Database.res = Database.pst.executeQuery();
+			
+			while(Database.res.next()) {
+				cmbKategoria.addItem(Database.res.getString("kategorite"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(SystemColor.controlHighlight);
+		panel_2.setBounds(381, 90, 86, 50);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblSasia = new JLabel("Sasia:");
+		if (Gjuha.gjuha == "albanian") {
+			lblSasia.setText("Sasia:");
+		} else {
+			lblSasia.setText("Quantity:");
+		}
+		lblSasia.setBounds(10, 0, 57, 14);
+		panel_2.add(lblSasia);
+		
+		JSpinner spSasia = new JSpinner();
+		spSasia.setBounds(10, 19, 57, 21);
+		panel_2.add(spSasia);
+		spSasia.setModel(new SpinnerNumberModel(1, 1, 50, 1));
+		
+		JRadioButton rbAutomatik = new JRadioButton("Automatik");
+		if (Gjuha.gjuha == "albanian") {
+			rbAutomatik.setText("Automatik");
+		} else {
+			rbAutomatik.setText("Automatic:");
+		}
+		rbAutomatik.setSelected(true);
+		buttonGroup.add(rbAutomatik);
+		rbAutomatik.setBounds(21, 92, 109, 23);
+		panel.add(rbAutomatik);
+		
+		JRadioButton rbManual = new JRadioButton("Manual");
+		buttonGroup.add(rbManual);
+		rbManual.setBounds(21, 113, 109, 23);
+		panel.add(rbManual);
+		
+		JLabel lblNderruesiIShpejtesise = new JLabel("Nderruesi i Shpejtesise:");
+		if (Gjuha.gjuha == "albanian") {
+			lblNderruesiIShpejtesise.setText("Nderruesi i Shpejtesise:");
+		} else {
+			lblNderruesiIShpejtesise.setText("Gear Changer:");
+		}
+		lblNderruesiIShpejtesise.setBounds(21, 76, 141, 14);
+		panel.add(lblNderruesiIShpejtesise);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Te Dhenat Teknike", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(37, 235, 477, 128);
+		getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblKarburanti = new JLabel("Karburanti:");
+		if (Gjuha.gjuha == "albanian") {
+			lblKarburanti.setText("Karburanti");
+		} else {
+			lblKarburanti.setText("Carburant:");
+		}
+		lblKarburanti.setBounds(21, 27, 86, 14);
+		panel_1.add(lblKarburanti);
+		
+		JLabel lblShpenzimetLkm = new JLabel("Shpenzimet: (L/100km)");
+		if (Gjuha.gjuha == "albanian") {
+			lblShpenzimetLkm.setText("Shpenzimet: (L/100km)");
+		} else {
+			lblShpenzimetLkm.setText("Cost: (L/100km):");
+		}
+		lblShpenzimetLkm.setBounds(168, 27, 140, 14);
+		panel_1.add(lblShpenzimetLkm);
+		
+		JSpinner spShpenzimet = new JSpinner();
+		spShpenzimet.setBounds(168, 44, 73, 20);
+		panel_1.add(spShpenzimet);
+		spShpenzimet.setModel(new SpinnerNumberModel(10, 3, 35, 1));
+		
+		JLabel nrUleseve = new JLabel("Numri i Uleseve:");
+		if (Gjuha.gjuha == "albanian") {
+			nrUleseve.setText("Numri i Uleseve:");
+		} else {
+			nrUleseve.setText("Seats:");
+		}
+		nrUleseve.setBounds(330, 27, 99, 14);
+		panel_1.add(nrUleseve);
+		
+		JSpinner spNrUleseve = new JSpinner();
+		spNrUleseve.setBounds(330, 44, 73, 20);
+		panel_1.add(spNrUleseve);
+		spNrUleseve.setModel(new SpinnerNumberModel(5, 2, 7, 1));
+		
+		JCheckBox cbNafte = new JCheckBox();
+		if (Gjuha.gjuha == "albanian") {
+			cbNafte.setText("Naft\u00EB");
+		} else {
+			cbNafte.setText("Disel");
+		}
+		cbNafte.setBounds(21, 43, 97, 23);
+		panel_1.add(cbNafte);
+		
+		JCheckBox cbBenzine = new JCheckBox("Benzin\u00EB");
+		if (Gjuha.gjuha == "albanian") {
+			cbBenzine.setText("Benzin\u00EB");
+		} else {
+			cbBenzine.setText("Gasoline");
+		}
+		cbBenzine.setBounds(21, 69, 97, 23);
+		panel_1.add(cbBenzine);
+		
+		JCheckBox cbElektrik = new JCheckBox("Elektrik");
+		if (Gjuha.gjuha == "albanian") {
+			cbElektrik.setText("Elektrik");
+		} else {
+			cbElektrik.setText("Electric");
+		}
+		cbElektrik.setBounds(21, 95, 97, 23);
+		panel_1.add(cbElektrik);
+		
+		JButton btnShtoAutomjetin = new JButton("Shto Automjetin");
+		if (Gjuha.gjuha == "albanian") {
+			btnShtoAutomjetin.setText("Shto Automjetin");
+		} else {
+			btnShtoAutomjetin.setText("Add Car");
+		}
+		btnShtoAutomjetin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String nderruesi = "";
+				if ( rbManual.isSelected() ) {
+					nderruesi = "Manual";
+				} else {
+					nderruesi = "Automatik";
+				}
+				boolean error=true;
+				
+				if ( cbBenzine.isSelected() && cbNafte.isSelected()  && cbElektrik.isSelected() )
+				{
+					JOptionPane.showMessageDialog(null, "Nuk mund të zgjedhni tri llojet e karburantit!");
+				}
+				else if ( !cbBenzine.isSelected() && !cbNafte.isSelected() && !cbElektrik.isSelected() )
+				{
+					JOptionPane.showMessageDialog(null, "Ju nuk keni percaktuar llojin e karburantit te vetures!");
+				}
+				else if ( cbBenzine.isSelected() && cbNafte.isSelected())
+				{
+					JOptionPane.showMessageDialog(null, "Nuk mund te zgjedhni veture me naftë dhe benzinë!");
+				}
+				else
+				{
+					error=false;
+				}
+				String karburanti;
+				if(cbBenzine.isSelected() && cbElektrik.isSelected())
+				{
+					karburanti=cbBenzine.getText()+"-"+cbElektrik.getText();
+				}
+				else
+				{
+					if(cbNafte.isSelected() && cbElektrik.isSelected())
+					{
+						karburanti=cbNafte.getText() + "-"+ cbElektrik.getText();
+					}
+					else
+						if(cbBenzine.isSelected())
+						{
+							karburanti=cbBenzine.getText();
+						}
+						else
+							if(cbNafte.isSelected())
+						{
+							karburanti=cbNafte.getText();
+						}
+							else
+							{
+								karburanti=cbElektrik.getText();
+							}
+				}
+				if (!error){
+					
+					String sql = "INSERT INTO veturat (kid, marka, modeli, vitiProdhimit, nderruesi, numriUleseve, karburanti, shpenzimet, sasiaTotale, sasiaLire)" 
+							+ "VALUES ('" + String.valueOf(cmbKategoria.getSelectedIndex()+1)  + "', '" + txtMarka.getText() + "', '" + txtModeli.getText()  + "', '" 
+							+ txtVitiProdhimit.getText() + "', '" + nderruesi + "', '" + String.valueOf(spNrUleseve.getValue()) + "', '" + karburanti 
+							+ "', '" + String.valueOf(spShpenzimet.getValue()) + "', '" + String.valueOf(spSasia.getValue()) + "','" + String.valueOf(spSasia.getValue()) + "');";
+					
+					if ( txtMarka.getText().equals("") || txtModeli.getText().equals("") || txtVitiProdhimit.getText().equals("") ) {
+						JOptionPane.showMessageDialog(null, "Ju lutem plotesoni te gjitha fushat!");
+					} else {
+						
+						if( Integer.valueOf(txtVitiProdhimit.getText()) > Year.now().getValue()+1 ) {
+							JOptionPane.showMessageDialog(null, "Nuk mund te shtoni Veturat e se ardhmes!");
+						} else {
+							try {
+								Database.pst = Database.conn.prepareStatement(sql);
+								Database.pst.execute();
+								Database.pst.close();
+								JOptionPane.showMessageDialog(null, "Shtimi eshte bere me sukses!");
+							} catch (SQLException e1) {
+								try {
+									Database.cStmt = Database.conn.prepareCall("{call rritSasine(?, ?)}");
+									Database.cStmt.setString(1, txtModeli.getText());
+									Database.cStmt.setInt(2, (Integer)spSasia.getValue());
+									Database.cStmt.execute();
+									JOptionPane.showMessageDialog(null, "Vetura ekziston, sasia u shtuar per "+ String.valueOf(spSasia.getValue())  +"!");
+								} catch (SQLException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+							}
+						}					
+					}	
+				}
+			}
+		});
+		btnShtoAutomjetin.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnShtoAutomjetin.setBounds(194, 386, 167, 48);
+		getContentPane().add(btnShtoAutomjetin);
+		
+
+	}
+}

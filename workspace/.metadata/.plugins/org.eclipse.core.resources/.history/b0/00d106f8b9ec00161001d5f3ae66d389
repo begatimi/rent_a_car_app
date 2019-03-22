@@ -1,0 +1,29 @@
+package test;
+import java.util.ArrayList;
+
+public class Test {
+public static void main(String[] args) {
+	ArrayList<String> list = new ArrayList<String> ();
+	list.add("Denver");
+	list.add("Austin");
+	String city = list.get(0);
+	list.set(3, "Dallas");
+	System.out.println(list.get(3));
+}
+}
+/*
+class Circle {
+double radius;
+public boolean equals(Circle circle ) {
+return this.radius == circle.radius;
+}
+}*/
+
+class Circle {
+double radius;
+public boolean equals( Object circle) {
+return this.radius ==
+((Circle)circle).radius;
+}
+}
+

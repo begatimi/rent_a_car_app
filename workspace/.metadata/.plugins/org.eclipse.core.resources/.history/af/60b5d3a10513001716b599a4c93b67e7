@@ -1,0 +1,75 @@
+package java_5;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
+import java.awt.Color;
+
+public class frmFileTransfer extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmFileTransfer frame = new frmFileTransfer();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frmFileTransfer() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 601, 444);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblKalkulatoriPerTransferimin = new JLabel("Kalkulatori per transferimin e fajllave");
+		lblKalkulatoriPerTransferimin.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblKalkulatoriPerTransferimin.setBounds(116, 39, 313, 26);
+		contentPane.add(lblKalkulatoriPerTransferimin);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Rregullimet", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(34, 83, 481, 58);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblSasiaETe = new JLabel("Sasia e te dhenave:");
+		lblSasiaETe.setBounds(6, 22, 96, 14);
+		panel.add(lblSasiaETe);
+		
+		JComboBox cmbSasiaDhenave = new JComboBox();
+		cmbSasiaDhenave.setBounds(124, 19, 78, 20);
+		panel.add(cmbSasiaDhenave);
+		
+		JLabel lblBandwidth = new JLabel("Bandwidth:");
+		lblBandwidth.setBounds(319, 19, 96, 14);
+		panel.add(lblBandwidth);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(397, 16, 78, 20);
+		panel.add(comboBox);
+	}
+}

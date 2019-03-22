@@ -1,0 +1,22 @@
+1493044152280	Rename local variable 'isActiv'
+1493109141994	Delete element
+1493109495469	Rename local variable 'compName'
+1493109886716	Rename local variable 'MPG'
+1493111127880	Rename method 'getKostojaDitore'
+1493111139881	Rename method 'getKostojaJavore'
+1493146753956	Delete element
+1493146814298	Rename package 'Frames'
+1493146825816	Rename package 'Security'
+1493146838269	Rename package 'Vehicles'
+1493193078163	Delete element
+1493193081976	Delete element
+1493193087772	Delete element
+1493193096290	Rename type 'Automjetet'
+1493193118951	Rename field 'aid'
+1493232266832	Rename field 'liter100km'
+1493232286750	Rename method 'getAid'
+1493232336092	Rename local variable 'l100km'
+1493282440460	Delete element
+1493282448994	Delete element
+1493282453641	Delete element
+1493457693156	Rename type 'frmInternalShtoAutomjete'

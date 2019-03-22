@@ -1,0 +1,22 @@
+package test;
+
+
+public class Test {
+public static void main(String[] args) {
+new Person().printPerson();
+new Student().printPerson();
+}
+}
+class Student extends Person {
+String getInfo() {
+return "Student";
+}
+}
+class Person {
+String getInfo() {
+return "Person";
+}
+public void printPerson() {
+System.out.println(getInfo());
+}
+}

@@ -1,0 +1,308 @@
+package frames;
+
+import java.awt.EventQueue;
+import java.awt.Frame;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.KeyStroke;
+
+import java.awt.event.KeyEvent;
+import java.util.Date;
+import java.awt.event.InputEvent;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+
+public class frmMain extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmMain frame = new frmMain();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	/**
+	 * Create the frame.
+	 */
+	public frmMain() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(frmMain.class.getResource("/images/car.png")));
+		setTitle("Programi per rezervimin e veturave me qera");
+		if ( Gjuha.gjuha == "albanian") {
+			setTitle("Programi per rezervimin e veturave me qera");
+		} else {
+			setTitle("Car Rental Program");
+		}
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//Maximize Window
+		this.setExtendedState(Frame.MAXIMIZED_BOTH);
+		
+		setBounds(100, 100, 730, 500);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mnFile.setText("Dalja");
+		} else {
+			mnFile.setText("Exit");
+		}
+		mnFile.setMnemonic('D');
+		menuBar.add(mnFile);
+		
+		// C'kyqja nga llogaria
+		JMenuItem mntmkyqu = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmkyqu.setText("\u00C7'kyqu");
+		} else {
+			mntmkyqu.setText("Log out");
+		}
+		mntmkyqu.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
+		mntmkyqu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmLogin.main(null);
+				dispose();
+			}
+		});
+		mnFile.add(mntmkyqu);
+		
+		JMenuItem mntmExit = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmExit.setText("Mbyll Programin");
+		} else {
+			mntmExit.setText("Close Program");
+		}
+		mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, InputEvent.CTRL_MASK));
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		mnFile.add(mntmExit);
+		
+		JMenu mnVeturat = new JMenu();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mnVeturat.setText("Veturat");
+		} else {
+			mnVeturat.setText("Cars");
+		}
+		mnVeturat.setMnemonic('V');
+		menuBar.add(mnVeturat);
+		
+		JMenu mnLlogarite = new JMenu();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mnLlogarite.setText("Llogarit\u00EB");
+		} else {
+			mnLlogarite.setText("Accounts");
+		}
+		mnLlogarite.setMnemonic('L');
+		menuBar.add(mnLlogarite);
+		
+		JMenu mnNdihm = new JMenu();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mnNdihm.setText("Ndihm\u00EB");
+		} else {
+			mnNdihm.setText("Help");
+		}
+		mnNdihm.setMnemonic('N');
+		menuBar.add(mnNdihm);
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		Toolkit objTk = Toolkit.getDefaultToolkit();
+		int width = (int)objTk.getScreenSize().getWidth();
+		int height = (int)objTk.getScreenSize().getHeight();
+		
+		// Krijimi i desktopPane per shtimin e Framave Internal
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, width, height);
+		contentPane.add(desktopPane);
+		
+		JLabel lblPershendetje = new JLabel();
+		if (Gjuha.gjuha == "albanian") {
+			lblPershendetje = new JLabel("Pershendetje, " + Database.emriDB + " " + Database.mbiemriDB + "!");
+		} else {
+			lblPershendetje = new JLabel("Welcome, " + Database.emriDB + " " + Database.mbiemriDB + "!");
+		}
+		lblPershendetje.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblPershendetje.setBounds(22, 11, 321, 19);
+		desktopPane.add(lblPershendetje);
+		
+		JMenuBar statusBar = new JMenuBar();
+		statusBar.setBackground(UIManager.getColor("info"));
+		statusBar.setBounds(0, height-100, width, 25);
+		desktopPane.add(statusBar, java.awt.BorderLayout.SOUTH);
+		
+		Date date = new Date();
+		
+		JLabel lblStatusBar = new JLabel(date.toString());
+		statusBar.add(lblStatusBar);
+		
+		
+		// Vendosja e frame-it internal ne desktopPane
+		JMenuItem mntmRrethNesh = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmRrethNesh.setText("Rreth Nesh");
+		} else {
+			mntmRrethNesh.setText("About Us");
+		}
+		mntmRrethNesh.setIcon(new ImageIcon(frmMain.class.getResource("/images/info.png")));
+		mntmRrethNesh.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
+		mntmRrethNesh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmAbout objAbout = new frmAbout();
+				desktopPane.add(objAbout);
+				objAbout.setVisible(true);
+			}
+		});
+		mnNdihm.add(mntmRrethNesh);
+		
+		JMenuItem mntmKrijoLlogari = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmKrijoLlogari.setText("Krijo Llogari");
+		} else {
+			mntmKrijoLlogari.setText("Add Accounts");
+		}
+		mntmKrijoLlogari.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
+		mntmKrijoLlogari.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmInternalKrijoLlogari objKL = new frmInternalKrijoLlogari();
+				desktopPane.add(objKL);
+				objKL.setVisible(true);
+			}
+		});
+		mnLlogarite.add(mntmKrijoLlogari);
+		
+		JMenuItem mntmMenaxhoLlogarit = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmMenaxhoLlogarit.setText("Menaxho Llogarit\u00EB");
+		} else {
+			mntmMenaxhoLlogarit.setText("Manage Accounts");
+		}
+		mntmMenaxhoLlogarit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, InputEvent.CTRL_MASK));
+		mntmMenaxhoLlogarit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmInternalMenaxhoLlogarite objML = new frmInternalMenaxhoLlogarite();
+				desktopPane.add(objML);
+				objML.setVisible(true);
+				if ( Gjuha.gjuha == "albanian" ) {
+					lblStatusBar.setText("Menaxho Llogarit\u00EB");
+				} else {
+					lblStatusBar.setText("Manage Accounts");
+				}
+			}
+		});
+		mnLlogarite.add(mntmMenaxhoLlogarit);
+		
+		JMenuItem mntmNdryshoFjalekalimin = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmNdryshoFjalekalimin.setText("Ndrysho Fjalekalimin");
+		} else {
+			mntmNdryshoFjalekalimin.setText("Change Password");
+		}
+		mntmNdryshoFjalekalimin.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
+		mntmNdryshoFjalekalimin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmInternalNdryshoFjalekalimin objNF = new frmInternalNdryshoFjalekalimin();
+				desktopPane.add(objNF);
+				objNF.setVisible(true);
+			}
+		});
+		mnLlogarite.add(mntmNdryshoFjalekalimin);
+		
+		JMenuItem mntmShtoAutomjete = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmShtoAutomjete.setText("Shto Vetura");
+		} else {
+			mntmShtoAutomjete.setText("Add Cars");
+		}
+		mntmShtoAutomjete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, InputEvent.CTRL_MASK));
+		mntmShtoAutomjete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmInternalShtoVetura objShtoAuto = new frmInternalShtoVetura();
+				desktopPane.add(objShtoAuto);
+				objShtoAuto.setVisible(true);
+			}
+		});
+		mnVeturat.add(mntmShtoAutomjete);
+		
+		JMenuItem mntmMerrMeQera = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmMerrMeQera.setText("Rezervo Vetura");
+		} else {
+			mntmMerrMeQera.setText("Rent Cars");
+		}
+		mntmMerrMeQera.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, InputEvent.CTRL_MASK));
+		mntmMerrMeQera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmInternalRezervoVetura objRv = new frmInternalRezervoVetura();
+				desktopPane.add(objRv);
+				objRv.setVisible(true);
+			}
+		});
+		mnVeturat.add(mntmMerrMeQera);
+		
+		JMenuItem mntmTeGjithaVeturat = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmTeGjithaVeturat.setText("Lista e Veturave");
+		} else {
+			mntmTeGjithaVeturat.setText("Cars List");
+		}
+		mntmTeGjithaVeturat.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_MASK));
+		mntmTeGjithaVeturat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmInternalListaVeturave objLv = new frmInternalListaVeturave();
+				desktopPane.add(objLv);
+				objLv.setVisible(true);
+			}
+		});
+		mnVeturat.add(mntmTeGjithaVeturat);
+		
+		JMenuItem mntmKategoriteDheKostot = new JMenuItem();
+		if ( Gjuha.gjuha == "albanian" ) {
+			mntmKategoriteDheKostot.setText("Kategorite dhe Kostot");
+		} else {
+			mntmKategoriteDheKostot.setText("Categories and Costs");
+		}
+		mntmKategoriteDheKostot.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.CTRL_MASK));
+		mntmKategoriteDheKostot.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmInternalKategoriteKostot objKk = new frmInternalKategoriteKostot();
+				desktopPane.add(objKk);
+				objKk.setVisible(true);
+			}
+		});
+		mnVeturat.add(mntmKategoriteDheKostot);
+	}
+}

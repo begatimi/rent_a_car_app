@@ -1,0 +1,264 @@
+package frames;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+
+import security.SaltedMD5;
+
+import javax.swing.JButton;
+import javax.print.attribute.standard.NumberOfInterveningJobs;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.util.Base64;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class frmLogin {
+	
+	int numroTentimet = 1;
+	String gjuha;
+	
+	
+	
+	private JFrame frmProgramiPerRezervimin;
+	private JTextField txtPerdoruesi;
+	private JPasswordField txtFjalekalimi;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frmLogin window = new frmLogin();
+					window.frmProgramiPerRezervimin.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public frmLogin() {
+		initialize();
+		gjuha = "albanian";
+		Database.conn = sqlDBConnector.connectCarDb();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {		
+		
+		frmProgramiPerRezervimin = new JFrame();
+		
+		frmProgramiPerRezervimin.setTitle("Programi per rezervimin e veturave me qera");
+		frmProgramiPerRezervimin.setIconImage(Toolkit.getDefaultToolkit().getImage(frmLogin.class.getResource("/images/login.png")));
+		frmProgramiPerRezervimin.setBounds(100, 100, 640, 480);
+		frmProgramiPerRezervimin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmProgramiPerRezervimin.getContentPane().setLayout(null);
+		
+		JLabel lblMiresevini = new JLabel("Mir\u00EBsevini!");
+		lblMiresevini.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMiresevini.setFont(new Font("Courier New", Font.BOLD, 25));
+		lblMiresevini.setBounds(288, 87, 285, 29);
+		frmProgramiPerRezervimin.getContentPane().add(lblMiresevini);
+		
+		JLabel lblPerdoruesi = new JLabel("P\u00EBrdoruesi:");
+		lblPerdoruesi.setFont(new Font("Courier New", Font.PLAIN, 17));
+		lblPerdoruesi.setBounds(288, 169, 126, 20);
+		frmProgramiPerRezervimin.getContentPane().add(lblPerdoruesi);
+		
+		txtPerdoruesi = new JTextField();
+		txtPerdoruesi.setColumns(10);
+		txtPerdoruesi.setBounds(418, 169, 155, 20);
+		frmProgramiPerRezervimin.getContentPane().add(txtPerdoruesi);
+		
+		JLabel lblFjalekalimi = new JLabel("Fjal\u00EBkalimi:");
+		lblFjalekalimi.setFont(new Font("Courier New", Font.PLAIN, 17));
+		lblFjalekalimi.setBounds(288, 207, 126, 20);
+		frmProgramiPerRezervimin.getContentPane().add(lblFjalekalimi);
+		
+		txtFjalekalimi = new JPasswordField();
+		txtFjalekalimi.setBounds(418, 207, 155, 20);
+		frmProgramiPerRezervimin.getContentPane().add(txtFjalekalimi);
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(frmLogin.class.getResource("/images/security.png")));
+		label_3.setBounds(10, 87, 256, 256);
+		frmProgramiPerRezervimin.getContentPane().add(label_3);
+		
+		JLabel lblMesazhi = new JLabel("");
+		lblMesazhi.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMesazhi.setForeground(Color.RED);
+		lblMesazhi.setBounds(285, 236, 288, 20);
+		frmProgramiPerRezervimin.getContentPane().add(lblMesazhi);
+		
+		JButton btnKyqu = new JButton("Kyqu");
+
+		btnKyqu.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent e) {
+				/*String perdoruesi, perdoruesiDB = "", fjalekalimiDB="", eshteAktiv="";
+				int usernameID= 0;
+				perdoruesi = txtPerdoruesi.getText();
+								
+				try {
+					String sql = "select * from accounts where username='" + perdoruesi + "'";
+					pst = conn.prepareStatement(sql);
+					res = pst.executeQuery();
+					
+					while(res.next()){
+						usernameID = res.getInt("ID");
+						perdoruesiDB = res.getString("username");
+						fjalekalimiDB = res.getString("password");
+						eshteAktiv = res.getString("isActive");
+			        }
+					
+					pst.close();
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+				}*/
+				String perdoruesi = txtPerdoruesi.getText();
+				Database.searchDB(perdoruesi);
+				
+				
+				if ( !txtPerdoruesi.getText().equals("") && !txtFjalekalimi.getText().equals("") ) {
+					if ( Database.eshteAktiv == "po" ) {
+						if ( numroTentimet < 3) {
+							try {
+								String sql ="select * from llogarite where perdoruesi='"+ txtPerdoruesi.getText() + "' and fjalekalimi='"+ SaltedMD5.getSecurePassword(txtFjalekalimi.getText(), Base64.getDecoder().decode(Database.salt)) +"'";
+								Database.executeQueryWithResult(sql);
+								Database.res.last();
+								int count = Database.res.getRow();
+								Database.pst.close();
+								if (count>0) {
+									frmProgramiPerRezervimin.dispose();
+									frmMain objMain = new frmMain();
+									objMain.setVisible(true);
+								} else {
+									numroTentimet++;
+									
+									if (gjuha == "albanian") {
+										lblMesazhi.setText("Perdoruesi ose fjalëkalimi jane gabim!");
+									} else {
+										lblMesazhi.setText("Username or password is invalid!");
+									}
+								}
+							} catch (NullPointerException e1) {
+								JOptionPane.showMessageDialog(null, "Keni shenuar te dhenat gabim!");
+							} catch (Exception e2) {
+								// TODO: handle exception
+								JOptionPane.showMessageDialog(null, e2);
+							}
+							
+						} else if ( numroTentimet == 4 ) {
+							System.exit(0);
+						} else {
+							try {
+								String sql ="UPDATE llogarite SET eshteAktiv='jo' WHERE id='" + Database.idDB + "';";
+								Database.executeQueryDB(sql);
+								
+								if (gjuha == "albanian") {
+									lblMesazhi.setText("Llogaria juaj tani eshte e bllokuar!");
+								} else {
+									lblMesazhi.setText("Now account has been blocked!");
+								}
+							} catch (NullPointerException e1) {
+								JOptionPane.showMessageDialog(null, "Keni shenuar te dhenat gabim!");
+							} catch (Exception e2) {
+								// TODO: handle exception
+								JOptionPane.showMessageDialog(null, e2);
+							}
+						}					
+					} else {
+						if (gjuha == "albanian") {
+							lblMesazhi.setText("Llogaria juaj eshte bllokuar!");
+						} else {
+							lblMesazhi.setText("Your account has been blocked!");
+						}
+					}
+				} else {
+					if (gjuha == "albanian") {
+						lblMesazhi.setText("Ju lutem plotesoni fushat e zbrazeta!");
+					} else {
+						lblMesazhi.setText("Please fill the empty fields!");
+					}
+					
+						
+				}
+				
+			}
+		});
+		
+		btnKyqu.setFont(new Font("Courier New", Font.PLAIN, 17));
+		btnKyqu.setBounds(380, 265, 99, 36);
+		frmProgramiPerRezervimin.getContentPane().add(btnKyqu);
+		
+		JButton btnEnglish = new JButton("");
+		btnEnglish.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				gjuha = "english";
+				lblMiresevini.setText("Welcome!");
+				lblPerdoruesi.setText("Username:");
+				lblFjalekalimi.setText("Password:");
+				btnKyqu.setText("Login");
+				frmProgramiPerRezervimin.setTitle("Car Rental Program");
+			}
+		});
+		btnEnglish.setIcon(new ImageIcon(frmLogin.class.getResource("/images/England_icon.png")));
+		btnEnglish.setBounds(241, 384, 60, 46);
+		frmProgramiPerRezervimin.getContentPane().add(btnEnglish);
+		
+		JButton btnAlbanian = new JButton("");
+		btnAlbanian.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gjuha = "albanian";
+				lblMiresevini.setText("Mir\u00EBsevini!");
+				lblPerdoruesi.setText("P\u00EBrdoruesi:");
+				lblFjalekalimi.setText("Fjal\u00EBkalimi:");
+				btnKyqu.setText("Kyqu");
+				frmProgramiPerRezervimin.setTitle("Programi per rezervimin e veturave me qera");
+			}
+		});
+		btnAlbanian.setIcon(new ImageIcon(frmLogin.class.getResource("/images/Albania_icon.png")));
+		btnAlbanian.setBounds(311, 384, 60, 46);
+		frmProgramiPerRezervimin.getContentPane().add(btnAlbanian);
+		
+		
+		// Klikimi i buttonit me tastin enter
+		txtFjalekalimi.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if( e.getKeyCode() == KeyEvent.VK_ENTER) {
+					btnKyqu.doClick();
+				}
+			}
+		});
+		txtPerdoruesi.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if( e.getKeyCode() == KeyEvent.VK_ENTER) {
+					btnKyqu.doClick();
+				}
+			}
+		});
+		
+	}
+}
